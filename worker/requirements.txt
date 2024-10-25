@@ -1,0 +1,4 @@
+celery[redis]
+requests
+beautifulsoup4
+pika
