@@ -52,4 +52,4 @@ class Html_Parser:
             "operacoes_com_nfe": operacoes_nfe,
             "data_consulta": data_consulta
         }
-        return json.dumps(data, indent=4, ensure_ascii=False)
+        return json.dumps(data, ensure_ascii=False)

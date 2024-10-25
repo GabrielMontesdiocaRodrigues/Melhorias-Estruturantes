@@ -1,6 +1,6 @@
 import requests
-from config import Enviroment
-from parser_html import Html_Parser
+from .config import Environment
+from .parser_html import Html_Parser
 
 
 class Scraper(Html_Parser):
@@ -41,13 +41,13 @@ class Scraper(Html_Parser):
         }
 
     def _ini_section(self):
-        url_ini_section = Enviroment.URL_SEFAZ_GO
+        url_ini_section = Environment().URL_SEFAZ_GO
         response = requests.get(url_ini_section, headers=self._headers)
         if response.status_code == 200:
             self._section_cookies = response.cookies
 
     def _post_data(self):
-        url_post_data = Enviroment.URL_SEFAZ_GO.replace(
+        url_post_data = Environment().URL_SEFAZ_GO.replace(
             "default.html", "consultar.asp")
         response = requests.post(url_post_data, cookies=self._section_cookies,
                                  data=self._payload_cnpj, headers=self._headers)

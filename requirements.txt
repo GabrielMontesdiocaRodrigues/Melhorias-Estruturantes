@@ -2,3 +2,6 @@ fastapi
 uvicorn[standart]
 celery[redis]
 pika
+requests
+beautifulsoup4
+pydantic==1.10.0
