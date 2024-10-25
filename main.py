@@ -11,7 +11,7 @@ scraper_app = Celery('queue',
 @app.post('/scrape')
 def resquest_task(in_cnpj: str):
     r = scraper_app.send_task('worker.scrape',
-                              kwargs={'inCnpj': in_cnpj})
+                              kwargs={'in_Cnpj': in_cnpj})
     return r.id
 
 

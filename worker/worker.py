@@ -7,6 +7,6 @@ app = Celery('worker',
 
 
 @app.task()
-def scrape(in_cnpj: str):
-    scrape = Scraper(in_cnpj)
+def scrape(in_Cnpj: str):
+    scrape = Scraper(in_Cnpj)
     scrape.main()
