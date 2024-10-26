@@ -59,5 +59,7 @@ class Scraper(Html_Parser):
         self._set_payload_cnpj(self._in_cnpj)
         self._ini_section()
         self._post_data()
+        if not super().has_cpnj_tag(self._html_data):
+            return {'Messaage': "Não foi encontrado nenhum contribuinte para o parâmetro informado!"}
         self._rjson = super().parse_html_to_json(self._html_data)
         return self._rjson

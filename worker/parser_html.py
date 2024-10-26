@@ -53,3 +53,9 @@ class Html_Parser:
             "data_consulta": data_consulta
         }
         return json.dumps(data, ensure_ascii=False)
+
+    def has_cpnj_tag(self, html: str):
+        soup = BeautifulSoup(html, 'html.parser')
+        if soup.find('span', string="CNPJ") != None:
+            return True
+        return False
