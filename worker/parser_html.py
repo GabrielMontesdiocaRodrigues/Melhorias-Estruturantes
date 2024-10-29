@@ -20,11 +20,11 @@ class Html_Parser:
         nome_propriedade = soup.find('span', string="Nome da Propriedade:")
         nome_fantasia = soup.find('span', string="Nome Fantasia")
         if nome_fantasia != None:
-            nome_fantasia.find_next_sibling('span').string.strip()
-            nome_propriedade = ""
+            nome_fantasia_propriedade = nome_fantasia.find_next_sibling(
+                'span').string.strip()
         else:
-            nome_propriedade.find_next_sibling('span').string.strip()
-            nome_fantasia = ""
+            nome_fantasia_propriedade = nome_propriedade.find_next_sibling(
+                'span').string.strip()
         endereco = soup.find('div', string="Endereço Estabelecimento ").find_next_sibling(
             'span').string.strip()
         atividade_principal = soup.find(
@@ -48,8 +48,7 @@ class Html_Parser:
             "cadastro_atualizado": cadastro_atualizado,
             "nome_empresarial": nome_empresarial,
             "contribuinte": contribuinte,
-            "nome_fantasia": nome_fantasia,
-            "nome_propriedade": nome_propriedade,
+            "nome_fantasia_propriedade": nome_fantasia_propriedade,
             "endereco_estabelecimento": endereco,
             "atividade_principal": atividade_principal,
             "regime_de_apuracao": regime_apuracao,
